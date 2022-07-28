@@ -5,10 +5,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main()  {
+func main() {
 	var a = 1
 	println(a)
-	println("Hello world !!!!!")
+	println("Hello world !!!!！!")
 	utils.GetToday()
 	//Default返回一个默认的路由引擎
 	//gin.SetMode(gin.ReleaseMode)  // set debug mod off
@@ -19,5 +19,8 @@ func main()  {
 			"message": "pong",
 		})
 	})
-	r.Run() // listen and serve on 0.0.0.0:8080
+	err := r.Run()
+	if err != nil {
+		return
+	} // listen and serve on 0.0.0.0:8080
 }
