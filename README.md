@@ -1,0 +1,2 @@
+# goBasic
+go learning 
