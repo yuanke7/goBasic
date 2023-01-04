@@ -14,6 +14,7 @@ func main() {
 	fmt.Println(slic1)
 	// length
 	fmt.Println(len(slic1))
+
 	// 初始化切片
 	var sli []float64
 	sli = append(sli, 10.012)
