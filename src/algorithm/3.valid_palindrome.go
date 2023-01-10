@@ -6,6 +6,7 @@ import (
 	"unicode"
 )
 
+// 合法的回文串
 func validPalindrome(s string) bool {
 	// 检测合法字符
 	s = strings.TrimSpace(s)
@@ -32,6 +33,8 @@ func validPalindrome(s string) bool {
 	}
 	return true
 }
+
+//
 
 func main() {
 	s := "`l;`` 1o1 ??;l`"
