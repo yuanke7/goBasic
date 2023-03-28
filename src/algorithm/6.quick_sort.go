@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// 平均时间复杂度 o(nlogn)  根据pivot 的选择， 或快或慢
+
 func main() {
 	// 待排序的数组
 	arr := []int{5, 2, 4, 9, 7}
