@@ -6,28 +6,11 @@ import "fmt"
 
 func main() {
 	arr := []int{5, 2, 4, 6, 1, 3}
-	sorted := mergeSort(arr)
+	sorted := mergeSortA(arr)
 	fmt.Println(sorted)
 	//lst := make([][]int, 0, 10)
 	//lst = append(lst, arr[2:])
 	//fmt.Println(lst)
-}
-
-func merge(left, right []int) []int {
-	result := make([]int, 0, len(left)+len(right)) // 初始化一个长度为0 容量为左右左右数组和的切片， 超出容量后会自动分配二倍的容量
-	i, j := 0, 0
-	for i < len(left) && j < len(right) {
-		if left[i] < right[j] {
-			result = append(result, left[i])
-			i++
-		} else {
-			result = append(result, right[j])
-			j++
-		}
-	}
-	result = append(result, left[i:]...) // ... 表示将切片解包
-	result = append(result, right[j:]...)
-	return result
 }
 
 func mergeSort(arr []int) []int {
@@ -38,4 +21,48 @@ func mergeSort(arr []int) []int {
 	left := mergeSort(arr[:mid])
 	right := mergeSort(arr[mid:])
 	return merge(left, right)
+}
+
+func merge(left, right []int) []int {
+	i, j := 0, 0
+	result := make([]int, 0, len(left)+len(right))
+	for i < len(left) && j < len(right) {
+		if left[i] < right[j] {
+			result = append(result, left[i])
+			i++
+		} else {
+			result = append(result, right[j])
+			j++
+		}
+	}
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+	return result
+}
+
+func mergeSortA(arr []int) []int {
+	if len(arr) == 1 {
+		return arr
+	}
+	mid := len(arr) / 2
+	left := mergeSortA(arr[:mid])
+	right := mergeSortA(arr[mid:])
+	return mergeA(left, right)
+}
+
+func mergeA(left, right []int) []int {
+	result := make([]int, 0, len(left)+len(right))
+	i, j := 0, 0
+	for i < len(left) && j < len(right) {
+		if left[i] < right[j] {
+			result = append(result, left[i])
+			i++
+		} else {
+			result = append(result, right[j])
+			j++
+		}
+	}
+	result = append(result, left[i:]...)
+	result = append(result, right[j:]...)
+	return result
 }
