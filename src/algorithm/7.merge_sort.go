@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 // 时间复杂度 o(nlogn) 问题规模每次减半
+// 思路：直接取数组中部的元素作为标杆， 左右数组
 
 func main() {
 	arr := []int{5, 2, 4, 6, 1, 3}
