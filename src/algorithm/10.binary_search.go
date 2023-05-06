@@ -6,6 +6,7 @@ func main() {
 	println(binarySearchNormal(arr, 12))
 }
 
+// 递归解法  o(logN)  是一种减治的思想，而不是分治
 func binarySearchRecursion(arr []int, start int, end int, target int) int {
 	// 跳出条件
 	if start > end {
@@ -23,6 +24,7 @@ func binarySearchRecursion(arr []int, start int, end int, target int) int {
 	return binarySearchRecursion(arr, start, mid-1, target)
 }
 
+// 循环解法
 func binarySearchNormal(arr []int, target int) int {
 	if len(arr) == 0 {
 		return -1
